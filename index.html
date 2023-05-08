@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Users</title>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <ul id="users"></ul>
+
+    <script>
+fetch('http://localhost:3000/users')
+        .then(response => response.json())
+        .then(data => {
+          const usersList = document.querySelector('#users');
+          data.forEach(user => {
+            const listItem = document.createElement('li');
+            listItem.textContent = user.name;
+            usersList.appendChild(listItem);
+          });
+        });
+    </script>
+  </body>
+</html>
